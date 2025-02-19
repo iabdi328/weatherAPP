@@ -20,27 +20,23 @@ async function checkWeather(city) {
   } else {
     var data = await response.json();
 
-    // get wind speed console.log(data.wind.speed);
-    // get humidity console.log(data.main.humidity);
-    // temp console.log(data.main.temp);
-    // get city name console.log(data.name);
-
     document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temp").innerHTML =
       Math.round(data.main.temp) + "°F";
     document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
     document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
 
+    // Corrected Image Paths
     if (data.weather[0].main == "Clouds") {
-      weatherIcon.src = "./src/images/clouds.png";
+      weatherIcon.src = "/images/clouds.png";
     } else if (data.weather[0].main == "Rain") {
-      weatherIcon.src = "./src/images/rain.png";
+      weatherIcon.src = "/images/rain.png";
     } else if (data.weather[0].main == "Drizzle") {
-      weatherIcon.src = "./src/images/drizzle.png";
+      weatherIcon.src = "/images/drizzle.png";
     } else if (data.weather[0].main == "Mist") {
-      weatherIcon.src = "./src/images/mist.png";
+      weatherIcon.src = "/images/mist.png";
     } else if (data.weather[0].main == "Clear") {
-      weatherIcon.src = "./src/images/clear.png";
+      weatherIcon.src = "/images/clear.png";
     }
 
     document.querySelector(".weather").style.display = "block";
