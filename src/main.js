@@ -3,7 +3,7 @@ import javascriptLogo from "./javascript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.js";
 
-const apiKey = "d52139fb3686303fbfed39f69f0a77cb";
+const apiKey = import.meta.env.VITE_API_KEY;
 const apiUrl =
   "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=";
 
