@@ -26,18 +26,22 @@ async function checkWeather(city) {
     document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
     document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
 
-    // Corrected Image Paths
-    if (data.weather[0].main == "Clouds") {
-      weatherIcon.src = "/images/clouds.png";
-    } else if (data.weather[0].main == "Rain") {
-      weatherIcon.src = "/images/rain.png";
-    } else if (data.weather[0].main == "Drizzle") {
-      weatherIcon.src = "/images/drizzle.png";
-    } else if (data.weather[0].main == "Mist") {
-      weatherIcon.src = "/images/mist.png";
-    } else if (data.weather[0].main == "Clear") {
-      weatherIcon.src = "/images/clear.png";
+    const weatherIcon = document.querySelector(".weather-icon");
+    console.log("Weather Icon Element:", weatherIcon); // Check if the element is found
+
+    if (data.weather[0].main === "Clouds") {
+      weatherIcon.src = "./public/images/clouds.png";
+    } else if (data.weather[0].main === "Rain") {
+      weatherIcon.src = "./public/images/rain.png";
+    } else if (data.weather[0].main === "Drizzle") {
+      weatherIcon.src = "./public/images/drizzle.png";
+    } else if (data.weather[0].main === "Mist") {
+      weatherIcon.src = "./public/images/mist.png";
+    } else if (data.weather[0].main === "Clear") {
+      weatherIcon.src = "./public/images/clear.png";
     }
+
+    console.log("Weather Icon Path Set:", weatherIcon.src); // Check if the path is being set
 
     document.querySelector(".weather").style.display = "block";
     document.querySelector(".error").style.display = "none";
